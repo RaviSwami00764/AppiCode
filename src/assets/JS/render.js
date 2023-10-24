@@ -221,13 +221,14 @@ let expandConsole=()=>{
 // document.getElementById("generateXSD").addEventListener("click", generateXSD);
 // document.getElementById("getGridLayout").addEventListener("click", getGridLayout);
 // document.getElementById("generateCast").addEventListener("click", generateCast);
-// document.getElementById("generateRecordCast").addEventListener("click", generateRecordCast);
+document.getElementById("generateRecordCast").addEventListener("click", generateRecordCast);
 // document.getElementById("getCDTInfo").addEventListener("click", getCdtInfo);
 // document.getElementById("getWorkInfo").addEventListener("click", getWorkInfo);
 // document.getElementById("getBillboard").addEventListener("click", getBillboardLayout);
 // document.getElementById("getAppianCode").addEventListener("click", generateAppianCode);
-document.getElementById("runCode").addEventListener("click", generateAppianCode);
+// document.getElementById("runCode").addEventListener("click", generateAppianCode);
 document.getElementById("generateGridFieldCDT").addEventListener("click", generateGridCodeForCDTs);
+document.getElementById("generateGridFieldRecord").addEventListener("click", generateGridCodeForRecords);
 // document.getElementById("getViewData").addEventListener("click", getViewData);
 // document.getElementById("getForm").addEventListener("click", getForm);
 // document.getElementById("getGridColumn").addEventListener("click", getGridColumn);

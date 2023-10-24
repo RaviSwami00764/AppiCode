@@ -1,0 +1,146 @@
+/* CSS properties for Syntax highlighting
+
+Date: 04/09/2022
+Author: Ravi Swami
+*/
+
+/* code-elem */
+.code-elem{
+    color: rgb(252, 46, 46);
+}
+
+
+
+
+
+
+/* code-key */
+.code-key{
+    color: rgb(9, 253, 253);
+}
+.code-key>span{
+    color: rgb(9, 253, 253);
+}
+
+
+
+
+
+
+/* field name */
+.field-name{
+    color: green;
+}
+
+
+
+
+
+
+/* code-keywords */
+.code-keywords{
+    color: rgb(247, 90, 90);
+}
+.code-keywords>span{
+    color: rgb(247, 90, 90);
+}
+
+
+
+
+
+
+/* xsd-keywords */
+.xsd-keywords{
+    color: rgb(83, 243, 230);
+}
+
+
+
+
+
+
+/* keywords */
+.keywords{
+    color: rgb(74, 145, 252);
+}
+
+
+
+
+
+/* code-comment */
+.code-comment{
+    color: rgb(0, 255, 0);
+}
+.code-comment>span{
+    color: rgb(0, 255, 0);
+}
+
+
+
+
+
+/* code-str */
+.code-str{
+    color: #fffb00;
+}
+.code-str>span{
+    color: #fffb00;
+}
+
+
+
+
+
+/* rule-inputs */
+.rule-inputs{
+    color:rgb(174, 101, 243);
+}
+.rule-inputs>span{
+    color:rgb(174, 101, 243);
+}
+
+
+.artifact-name{
+    color: orange;
+}
+
+.artifact-type{
+    color: rgb(5, 252, 252);
+}
+
+.work-info{
+    color: rgb(5, 252, 252);
+}
+
+.code-orange{
+    color: orange;
+}
+
+.code-green{
+    color: green;
+}
+
+.code-yellow{
+    color: yellow;
+}
+
+.code-red{
+    color: red;
+}
+
+.code-cyan{
+    color: cyan;
+}
+
+.code-blue{
+    color: rgb(27, 27, 196);
+}
+.code-blue>span{
+    color: rgb(27, 27, 196);
+}
+
+.code-orange{
+    color: orange;
+}

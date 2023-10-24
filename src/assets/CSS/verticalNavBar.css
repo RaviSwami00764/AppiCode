@@ -1,0 +1,48 @@
+/* Vertical nav-bar styling,
+
+Date: 01/11/2022
+Author: Ravi Swami
+*/
+
+.vertical-navbar {
+    height: 95vh;
+    background-color: #0d1520;
+    width: 14vw;
+    color: white;
+}
+
+.navigation-heading {
+    padding-top: 20px;
+    padding-bottom: 30px;
+    padding-left: 15px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    background-color: #0d1520;
+    text-align: "center";
+}
+
+li {
+    transition: all 0.3s;
+    box-sizing: border-box;
+}
+
+li a {
+    display: block;
+    padding: 8px 16px;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    margin: 3px;
+}
+
+li:hover {
+    background-color: #212836;
+    border-radius: 20px;
+}

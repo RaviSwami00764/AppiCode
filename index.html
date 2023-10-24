@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Appicode</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+    <link rel="stylesheet" href="src/assets/CSS/codeBlock.css">
+    <link rel="stylesheet" href="src/assets/CSS/codeSnipped.css">
+    <link rel="stylesheet" href="src/assets/CSS/syntaxHighlighter.css">
+    <link rel="stylesheet" href="src/assets/CSS/scrollbar.css">
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/codemirror.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/theme/monokai.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/theme/dracula.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/addon/fold/foldcode.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/addon/fold/foldgutter.min.js"></script>
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/addon/fold/foldgutter.min.css">
+        <script src="/src/assets/JS/pixelCodePatterns.js" type="application/javascript"></script>
+
+
+
+        <link rel="stylesheet" href="./src/codemirror/codemirror-5.65.15/lib/codemirror.css">
+        <link rel="stylesheet" href="./src/codemirror/codemirror-5.65.15/addon/fold/foldgutter.css">
+        <script src="./src/codemirror/codemirror-5.65.15/src/codemirror.js"></script>
+        <script src="./src/codemirror/codemirror-5.65.15/addon/fold/foldcode.js"></script>
+        <script src="./src/codemirror/codemirror-5.65.15/addon/fold/foldgutter.js"></script>
+        <script src="./src/codemirror/codemirror-5.65.15/addon/fold/brace-fold.js"></script>
+        <script src="./src/codemirror/codemirror-5.65.15/mode/javascript/javascript.js"></script>
+
+    <style>
+        /* Additional custom styles can be added here */
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+            background-color: #1e1e1e;
+            font-family: Sans-Serif;
+        }
+
+        .cm-autoClosingBrackets {
+            color: #f22;
+        }
+
+        .custom-container {
+            position: absolute;
+            top: 52px;
+            left: 2px;
+            right: 2px;
+            bottom: 2px;
+            display: flex;
+            background-color: transparent;
+            border-radius: 15px;
+        }
+
+
+        .vertical-navbar {
+            width: 240px;
+            background-color: #171717;
+            border-radius: 15px;
+            margin: 5px;
+            padding: 20px;
+            overflow-y: scroll;
+            color: "#fff";
+        }
+
+        .horizontal-content {
+            position: relative;
+            flex-grow: 1;
+            padding: 10px;
+            width: 48%;
+            overflow-x: hidden;
+            margin: 5px;
+            margin-top: 10px;
+            border-radius: 15px;
+            background-color: #171717;
+            color: #fff;
+        }
+        
+        #horizontal-navbar {
+            background-color: #171717;
+            height: 50px;
+            border-radius: 20px;
+            padding: 7px;
+            box-sizing: border-box;
+            margin-left: 5px;
+            margin-right: 5px;
+        }
+
+        .CodeMirror {
+            font-size: 17px;
+            /* Adjust the font size as needed */
+        }
+
+        .vertical-navbar a {
+            text-decoration: none;
+            color: #d7d7d7;
+            box-sizing: border-box;
+            background-color: #353535;
+            padding: 7px;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        .vertical-navbar ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .nav-btn {
+            margin-bottom: 2px;
+            width: 100%;
+        }
+
+        .section-h {
+            color: #fff;
+        }
+
+
+        /* copy button and message css */
+        .copy-message {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 80%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            animation: fadeInOut 0.3s ease-in-out;
+            z-index: 100;
+        }
+
+        /* Keyframe animation for fade in and out */
+        @keyframes fadeInOut {
+            0% {
+                opacity: 0;
+                font-size: 0;
+            }
+
+            50% {
+                opacity: 1;
+                font-size: 16px;
+            }
+
+            100% {
+                opacity: 0;
+                font-size: 24px;
+            }
+        }
+
+        .rule-input input {
+            margin-bottom: 3px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="horizontal-navbar">
+        <div class="text-end">
+            <button class="btn btn-secondary" id="copyButton"><i class="fa-solid fa-copy" style="color: #171717;"></i>
+                Copy Code</button>
+        </div>
+        <div class="copy-message" id="copyMessage">Code Copied</div>
+    </div>
+    <div class="custom-container">
+        <div class="vertical-navbar" id="vertical-nav">
+            <!-- Vertical Navbar content -->
+
+
+            <div style="height: 70%;">
+                <h5 id="section-1-heading" class="section-h" style="cursor: pointer;">For CDTs</h5>
+                <ul class="list-unstyled" id="section-1">
+                    <li>
+                        <hr style="color: white;">
+                    </li>
+                    <li>
+                        <button type="button" class="nav-btn btn btn-primary btn-sm" id="getAppianCode">Appian
+                            Code</button>
+                    </li>
+                    <li>
+                        <button type="button" class="nav-btn btn btn-primary btn-sm" id="getViewDetails">Record
+                            Data</button>
+                    </li>
+                    <li>
+                        <button type="button" class="nav-btn btn btn-primary btn-sm" id="generateRecordCast">Record
+                            Casting</button>
+                    </li>
+
+                </ul>
+            </div>
+
+            <div class="rule-input" id="rule-inputs"
+                style="height: 20%; border-top: 3px solid #281616; border-radius: 12px;">
+                <input type="text" class="form-control" id="cdtName" name="cdtName" placeholder="CDT Name">
+                <input type="text" class="form-control" id="checkIsNullFun" name="checkIsNullFun"
+                    placeholder="CheckIsNull Function">
+                <input type="text" class="form-control" id="appPrefix" name="appPrefix" placeholder="App Prefix">
+                <input type="text" class="form-control" id="gridLayoutData" name="gridLayoutData" placeholder="Data">
+                <input type="text" class="form-control" id="entityValue" name="entityValue"
+                    placeholder="Data Store Entity">
+            </div>
+        </div>
+        <div class="horizontal-content" id="content1">
+            <div style="height: 8%;" class="row">
+                <div class="col-6 action-tab">
+                    <div class="cdt-action visible text-start">
+                        <!-- <button class="btn btn-secondary" id="generateXSD">XSD</button>
+                        <button class="btn btn-secondary" id="generateQE">QE</button>
+                        <button class="btn btn-secondary" id="generateCast">Cast</button> -->
+                        <button class="btn btn-secondary" id="generateGridFieldCDT">grid Field (CDTs)</button>
+
+                    </div>
+                </div>
+                <div class="text-end col-6">
+                    <button class="btn btn-secondary" id="runCode">
+                        <i class="fa-solid fa-circle-play" style="color: #171717;">
+                        </i> Run Code
+                    </button>
+                </div>
+            </div>
+            <div style="height: 91%;">
+                <textarea id="codeEditor"></textarea>
+            </div>
+        </div>
+        <!-- <div class="resizable-divider" id="divider"></div> -->
+        <div class="horizontal-content" id="content2">
+            
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/mode/javascript/javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/addon/edit/closebrackets.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/addon/edit/matchbrackets.min.js"
+        integrity="sha512-GSYCbN/le5gNmfAWVEjg1tKnOH7ilK6xCLgA7c48IReoIR2g2vldxTM6kZlN6o3VtWIe6fHu/qhwxIt11J8EBA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/addon/hint/show-hint.min.js"></script>
+
+    <script type="module" src="">
+        import { basicSetup } from "codemirror"
+        import { EditorView, keymap } from "@codemirror/view"
+        import { indentWithTab } from "@codemirror/commands"
+        import { javascript } from "@codemirror/lang-javascript"
+    </script>
+    <script>
+        $("#section-1-heading").click(function () {
+            $("#section-1").toggle();
+        });
+
+
+        $(document).ready(function () {
+            $("#copyButton").click(function () {
+                // Get the text content from the div with id "content2"
+                var textToCopy = $("#content2").text();
+
+                // Create a temporary textarea element to copy the text
+                var tempTextarea = $("<textarea>");
+                tempTextarea.val(textToCopy);
+
+                // Append the textarea to the body and select its content
+                $("body").append(tempTextarea);
+                tempTextarea.select();
+
+                // Copy the selected text to the clipboard
+                document.execCommand("copy");
+
+                // Remove the temporary textarea
+                tempTextarea.remove();
+                // alert("Text copied to clipboard: " + textToCopy);
+                // Display the "Code Copied" message
+                $("#copyMessage").fadeIn(200).delay(300).fadeOut(100);
+            });
+        });
+        const completions = [
+            { label: "panic", type: "keyword" },
+            { label: "park", type: "constant", info: "Test completion" },
+            { label: "password", type: "variable" },
+        ]
+
+        function myCompletions(context) {
+            let before = codeEditor.matchBefore(/\w+/)
+            // If completion wasn't explicitly started and there
+            // is no word before the cursor, don't open completions.
+            if (!codeEditor.explicit && !before) return null
+            return {
+                from: before ? before.from : context.pos,
+                options: completions,
+                validFor: /^\w*$/
+            }
+        }
+        const codeEditor = CodeMirror.fromTextArea(document.getElementById("codeEditor"), {
+            lineNumbers: true,
+            mode: "javascript",
+            theme: "monokai",
+            autoCloseBrackets: true,
+            matchBrackets: true,
+            indentOn: /[\{\(\[]/,
+            extraKeys: {
+                Tab: "indentAuto", // Use Tab key for auto-indentation
+            },
+            foldGutter: true,         // Enable code folding
+            gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter"],
+            // extensions: [
+            //     basicSetup,
+            //     autocompletion({override: [myCompletions]})
+            // ],
+            extraKeys: {
+                "Enter": "newlineAndIndentContinueComment"
+            },
+        });
+
+        codeEditor.on("beforeChange", (editor, changeObj) => {
+            const { text, from, to } = changeObj;
+
+            if (text === ",") {
+                let newText = text + changeObj.text[0] + editor.getSelection() + changeObj.text[1] + codeEditor.getRange(from, to);
+                changeObj.update(changeObj.from, { line: from.line, ch: from.ch + 1 }, newText);
+            }
+        });
+
+        codeEditor.on('keydown', function (editor, event) {
+            // Check if the key pressed is Enter and the Shift key is also pressed
+            if (event.keyCode === 13 && event.shiftKey) {
+                // Prevent the default behavior of Enter key (e.g., line break)
+                event.preventDefault();
+
+                // Call the generateAppianCode function here
+                generateAppianCode();
+            }
+        });
+
+        const keywordList = ["-cls", "-cl", "-rd", "-rt", "-ri"];
+
+        codeEditor.setOption("extraKeys", {
+            "Ctrl-Space": function (cm) {
+                cm.showHint({
+                    hint: CodeMirror.hint.anyword,
+                    words: keywordList
+                });
+            }
+        });
+        let marked = null;
+        codeEditor.on("beforeChange", (editor, changeObj) => {
+            const { text, from, to } = changeObj;
+
+            if (text === "{" || text === "(" || text === '"' || text === "'") {
+                let newText = text + changeObj.text[0] + editor.getSelection() + changeObj.text[1] + codeEditor.getRange(from, to);
+                changeObj.update(changeObj.from, { line: from.line, ch: from.ch + 1 }, newText);
+            }
+        });
+        codeEditor.setSize("100%", "100%")
+
+
+        function findNearestFunction(editor) {
+            const cursor = editor.getCursor(); // Get the current cursor position
+
+            let nearestFunction = null;
+
+            // Iterate through lines from the current line to the first line
+            for (let lineNumber = cursor.line; lineNumber >= 0; lineNumber--) {
+                const lineText = editor.getLine(lineNumber); // Get the text of the current line
+
+                // Regular expression to match function names starting with '-'
+                const functionRegex = /[\-,\>](\w+)(?=\s*\.|\s*)/g
+
+
+
+                // Iterate through matches in the current line
+                while (true) {
+                    const match = functionRegex.exec(lineText);
+
+                    if (!match || match.index > cursor.ch) {
+                        break;
+                    }
+
+                    nearestFunction = match[1];
+                }
+
+                if (nearestFunction) {
+                    break; // If a function is found, stop searching
+                }
+            }
+            if (nearestFunction) {
+                // Display a Bootstrap modal
+                
+                let verticalNav = document.getElementById("vertical-nav");
+                verticalNav.innerHTML = "";
+                
+                let currentFunctionPatterns = pixelCodeTablePatterns(nearestFunction);
+
+                let row0 = document.createElement("tr");
+                let cell0 = document.createElement("td");
+                cell0.textContent = `function:"${nearestFunction}"\n`;
+
+                let table = document.createElement("table");
+
+                row0.appendChild(cell0);
+                table.appendChild(row0);
+
+                for (let key in currentFunctionPatterns) {
+                    if (currentFunctionPatterns.hasOwnProperty(key)) {
+                        
+                        let row1 = document.createElement("tr");
+                        let row2 = document.createElement("tr");
+                      
+                        
+
+                        let cell1 = document.createElement("td");
+                        cell1.textContent = `@${key}`;
+
+                        let cell2 = document.createElement("td");
+                        cell2.innerHTML = currentFunctionPatterns[key].replace(/\n/g, "<br>").replace(/\s+/g, "&nbsp;")+"<br>";
+                    
+                        row1.appendChild(cell1);
+                        row2.appendChild(cell2);
+                        table.appendChild(row1);
+                        table.appendChild(row2);
+                    }
+                }
+                verticalNav.appendChild(table);
+                syntaxHighlightsVerticalNav();
+            }
+            
+            return nearestFunction;
+        }
+        // Event listener for cursor activity (e.g., cursor movement)
+        codeEditor.on("cursorActivity", () => {
+            generateAppianCode();
+            const nearestFunction = findNearestFunction(codeEditor);
+
+            if (nearestFunction) {
+                console.log(`The nearest function to the left is: ${nearestFunction}`);
+            } else {
+                console.log("No function found to the left of the cursor.");
+            }
+        });
+
+    </script>
+
+
+    <script src="/src/assets/JS/utilsFunctions.js" type="application/javascript"></script>
+    <script src="/src/assets/JS/formCreater.js" type="application/javascript"></script>
+    <script src="/src/assets/JS/recordFormCreator.js" type="application/javascript"></script>
+    <script src="/src/assets/JS/gridColumnsRecord.js" type="application/javascript"></script>
+    <script src="/src/assets/JS/gridLayoutRecord.js" type="application/javascript"></script>
+
+    <script src="/src/assets/JS/billboardLayout.js" type="application/javascript"></script>
+    <script src="/src/assets/JS/gridLayout.js" type="application/javascript"></script>
+    <script src="/src/assets/JS/syntaxHighlighter.js" type="application/javascript"></script>
+    <!-- <script src="/src/assets/JS/codeSnipped.js" type="application/javascript"></script> -->
+    <!-- <script src="/src/assets/JS/downloader.js" type="application/javascript"></script> -->
+    <script src="/src/assets/JS/recordCasting.js" type="application/javascript"></script>
+    <script src="/src/assets/JS/workInfo.js" type="application/javascript"></script>
+    <script src="/src/assets/JS/pixelCodeUtils.js" type="application/javascript"></script>
+    <script src="/src/assets/JS/pixelCodeQuickChange.js" type="application/javascript"></script>
+    <script src="/src/assets/JS/pixelCodeAPIs.js" type="application/javascript"></script>
+    <script src="/src/assets/JS/pixelCodeOrderHandler.js" type="application/javascript"></script>
+    <script src="/src/assets/JS/pixelCodeCommonRegex.js" type="application/javascript"></script>
+    <script src="/src/assets/JS/pixelInfoGrids.js" type="application/javascript"></script>
+    <script src="/src/assets/JS/pixelInfoCards.js" type="application/javascript"></script>
+    <script src="/src/assets/JS/pixelCode.js" type="application/javascript"></script>
+    <script src="/src/assets/JS/viewData.js" type="application/javascript"></script>
+    <script src="/src/assets/JS/codeBlock.js" type="application/javascript"></script>
+    <script src="/src/assets/JS/getViewFields.js" type="application/javascript"></script>
+    <script src="/src/assets/JS/gridColumns.js" type="application/javascript"></script>
+    <script src="/src/assets/JS/functionalRplacement.js" type="application/javascript"></script>
+    <script src="/src/assets/JS/gridFieldPixelCode.js" type="application/javascript"></script>
+    <script src="/src/assets/JS/render.js" type="application/javascript"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,15 @@
+.App {
+    font-family: sans-serif;
+    text-align: center;
+  }
+  
+  .pane-content {
+    background-color: gray;
+  }
+  
+  .splitter {
+    background-color: "#939393";
+    position: relative;
+    top: 50%;
+  }
+  

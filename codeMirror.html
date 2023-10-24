@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/codemirror.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/theme/dracula.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/codemirror.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/addon/edit/matchbrackets.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/mode/javascript/javascript.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@codemirror/autocomplete@0.18.0/dist/index.min.js"></script>
+</head>
+<body>
+  <div id="editor"></div>
+
+  <script>
+    const completions = [
+      { label: "panic", type: "keyword" },
+      { label: "park", type: "constant", info: "Test completion" },
+      { label: "password", type: "variable" },
+    ];
+  
+    function myCompletions(context) {
+      let before = context.matchBefore(/\w+/);
+      if (!context.explicit && !before) return null;
+      return {
+        from: before ? before.from : context.pos,
+        options: completions,
+        validFor: /^\w*$/,
+      };
+    }
+  
+    const editor = CodeMirror(document.getElementById("editor"), {
+      value: "// Type a 'p'\n",
+      mode: "javascript",
+      theme: "dracula",
+      matchBrackets: true,
+      extraKeys: {
+        "Ctrl-Space": (cm) => cm.showHint({ hint: myCompletions }),
+      },
+      lineNumbers: true,
+      lineWrapping: true,
+    });
+  </script>
+  
+</body>
+</html>

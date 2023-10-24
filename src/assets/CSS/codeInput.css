@@ -1,0 +1,65 @@
+/* Code-Editor subProject 
+level setup - reference taken from multiple websites and youtube videos
+
+mainReference - https://css-tricks.com/creating-an-editable-textarea-that-supports-syntax-highlighted-code/
+version - v.0.0.0.1
+Common issues - proper alignment of div and textarea over each other 
+
+Date: 03/12/2022
+Author: Ravi Swami
+*/
+
+#code-editor,
+#highlighting {
+  /* Both elements need the same text and space styling so they are directly on top of each other */
+  margin: 10px;
+  padding: 10px;
+  border: 0;
+  width: 95%;
+  height: 90%;
+  /* height: 90vh; */
+  /* left: 57%; */
+  /* margin-top: 60px; */
+}
+
+#code-editor,
+#highlighting,
+#highlighting * {
+  /* Also add text styles to highlighting tokens */
+  font-size: 12pt;
+  font-family: monospace;
+  /* line-height: 20pt; */
+  tab-size: 2;
+}
+
+#code-editor,
+#highlighting {
+  /* position: absolute; */
+  top: 0;
+  right: 0;
+}
+
+/* Move the textarea in front of the result */
+#code-editor {
+  z-index: 1;
+}
+
+#highlighting {
+  z-index: 0;
+}
+
+/* Make textarea almost completely transparent */
+#code-editor {
+  color: transparent;
+  resize: none;
+  background: transparent;
+  caret-color: rgb(243, 26, 26);
+  /* Or choose your favorite color */
+}
+
+#code-editor,
+#highlighting {
+  overflow: auto;
+  white-space: nowrap;
+  /* Allows textarea to scroll horizontally */
+}

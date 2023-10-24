@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Main Container with Resizable Divs</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+    </script>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        body{
+            width: 100vw;
+            overflow-x: hidden;
+        }
+        .horizontal-header{
+            margin-top: 0.8em;
+            padding-left: 20px;
+            padding-right: 20px;
+            box-sizing: border-box;
+            margin-bottom: 3px;
+        }
+        .horizontal-header a{
+            text-decoration: none;
+            margin-right: 3em;
+            color: #171717;
+        }
+        .horizontal-bar{
+            background-color: #171717;
+            height: 12%;
+            width: 100%;
+        }
+        .section-tab{
+            height: 270px;
+            padding: 15px;
+            box-sizing: border-box;
+            background-color: transparent;
+        }
+        .section-content{
+            background-color: #171717;
+            height: 100%;
+            border-radius: 12px;
+        }
+    </style>    
+</head>
+<body>
+    <div class="horizontal-header row align-items-center">
+        <div class="col-7 text-start">
+            <a href="#" class="nav-dashboard">Dashboard Designs</a>
+            <a href="#" class="nav-vertialnav">Navbar Designs</a>
+        </div>
+        <div class="col-5 text-end">
+            <button class="btn btn-secondary" id="copyButton"><i class="fa-solid fa-copy" style="color: #171717;"></i>
+                Copy Code</button>
+        </div>
+    </div>
+    <div class="horizontal-bar">
+        <h1>hello</h1>
+    </div>
+    <div class="container content-section">
+        <div class="row text-start gx-5">
+            <div class="col-3 section-tab">
+                <div class="section-content">
+                    Section1
+                </div>
+            </div>
+            <div class="col-3 section-tab">
+                <div class="section-content">
+                    Section1
+                </div>
+            </div>
+            <div class="col-3 section-tab">
+                <div class="section-content">
+                    Section1
+                </div>
+            </div>
+            <div class="col-3 section-tab">
+                <div class="section-content">
+                    Section1
+                </div>
+            </div>
+        </div>
+        <div class="row text-start gx-5">
+            <div class="col-3 section-tab">
+                <div class="section-content">
+                    Section1
+                </div>
+            </div>
+            <div class="col-3 section-tab">
+                <div class="section-content">
+                    Section1
+                </div>
+            </div>
+            <div class="col-3 section-tab">
+                <div class="section-content">
+                    Section1
+                </div>
+            </div>
+            <div class="col-3 section-tab">
+                <div class="section-content">
+                    Section1
+                </div>
+            </div>
+        </div>
+        <div class="row text-start gx-5">
+            <div class="col-3 section-tab">
+                <div class="section-content">
+                    Section1
+                </div>
+            </div>
+            <div class="col-3 section-tab">
+                <div class="section-content">
+                    Section1
+                </div>
+            </div>
+            <div class="col-3 section-tab">
+                <div class="section-content">
+                    Section1
+                </div>
+            </div>
+            <div class="col-3 section-tab">
+                <div class="section-content">
+                    Section1
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

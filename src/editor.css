@@ -1,0 +1,17 @@
+*{
+    background-color: aqua;
+    box-sizing: border-box;
+}
+#editor {
+    width: 500px;
+    height: 500px;
+    padding: 10px;
+    background-color: rgb(240, 219, 219);
+    color: rgb(218, 84, 84);
+    font-size: 14px;
+    /* overflow-y: scroll;
+    border: 3px solid red; */
+}
+.statement {
+    color: orange;
+}

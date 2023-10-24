@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <!-- CodeMirror Styles and Core Library -->
+<!-- CodeMirror Styles and Core Library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/codemirror.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/codemirror.min.js"></script>
+
+<!-- CodeMirror Autocomplete Extension -->
+<script src="/src/codemirror/codemirror-5.65.15/addon/fold/foldcode.js"></script>
+<script src="/src/codemirror/codemirror-5.65.15/addon/fold/foldgutter.js"></script>
+
+<style>
+  table {
+      border-collapse: collapse;
+      width: 100%;
+  }
+  th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+  }
+  th {
+      background-color: #f2f2f2;
+  }
+</style>
+</head>
+<body>
+  <div>
+    <button id="downloadButton">Download JSON</button>
+    <input type="file" id="uploadInput" accept=".json">
+</div>
+<div id="editor">
+    <!-- Your JSON data will be displayed here -->
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const downloadButton = document.getElementById("downloadButton");
+    const uploadInput = document.getElementById("uploadInput");
+    const editor = document.getElementById("editor");
+
+    // Function to update the editor's content with JSON data
+    function updateEditor(content) {
+        editor.textContent = JSON.stringify(content, null, 2);
+    }
+
+    // Function to save the JSON data to a file
+    function downloadJSON() {
+        const data = JSON.stringify(pixelGhPatternsCode, null, 2);
+        const blob = new Blob([data], { type: "application/json" });
+        const url = URL.createObjectURL(blob);
+
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "custom_patterns.json";
+        a.click();
+
+        URL.revokeObjectURL(url);
+    }
+
+    // Function to handle file upload
+    function handleFileUpload(event) {
+        const file = event.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+
+            reader.onload = function(e) {
+                try {
+                    const uploadedData = JSON.parse(e.target.result);
+                    pixelGhPatternsCode = uploadedData;
+                    updateEditor(pixelGhPatternsCode);
+                } catch (error) {
+                    alert("Invalid JSON file.");
+                }
+            };
+
+            reader.readAsText(file);
+        }
+    }
+
+    // Event listeners
+    downloadButton.addEventListener("click", downloadJSON);
+    uploadInput.addEventListener("change", handleFileUpload);
+
+    // Initialize the editor with the initial data
+    updateEditor(pixelGhPatternsCode);
+});
+
+</script>
+  
+</body>
+</html>

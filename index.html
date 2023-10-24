@@ -184,25 +184,7 @@
 
 
             <div style="height: 70%;">
-                <h5 id="section-1-heading" class="section-h" style="cursor: pointer;">For CDTs</h5>
-                <ul class="list-unstyled" id="section-1">
-                    <li>
-                        <hr style="color: white;">
-                    </li>
-                    <li>
-                        <button type="button" class="nav-btn btn btn-primary btn-sm" id="getAppianCode">Appian
-                            Code</button>
-                    </li>
-                    <li>
-                        <button type="button" class="nav-btn btn btn-primary btn-sm" id="getViewDetails">Record
-                            Data</button>
-                    </li>
-                    <li>
-                        <button type="button" class="nav-btn btn btn-primary btn-sm" id="generateRecordCast">Record
-                            Casting</button>
-                    </li>
-
-                </ul>
+                
             </div>
 
             <div class="rule-input" id="rule-inputs"
@@ -217,22 +199,11 @@
             </div>
         </div>
         <div class="horizontal-content" id="content1">
-            <div style="height: 8%;" class="row">
-                <div class="col-6 action-tab">
-                    <div class="cdt-action visible text-start">
-                        <!-- <button class="btn btn-secondary" id="generateXSD">XSD</button>
-                        <button class="btn btn-secondary" id="generateQE">QE</button>
-                        <button class="btn btn-secondary" id="generateCast">Cast</button> -->
-                        <button class="btn btn-secondary" id="generateGridFieldCDT">grid Field (CDTs)</button>
-
-                    </div>
-                </div>
-                <div class="text-end col-6">
-                    <button class="btn btn-secondary" id="runCode">
-                        <i class="fa-solid fa-circle-play" style="color: #171717;">
-                        </i> Run Code
-                    </button>
-                </div>
+            <div style="height: 8%;" class="text-start">
+                <button class="btn btn-secondary" id="generateGridFieldCDT">grid Field</button>
+                <button class="btn btn-secondary" id="generateGridFieldRecord">grid Field Record</button>
+                <button class="btn btn-secondary" id="generateRecordCast">Record Cast</button>
+                <button class="btn btn-secondary" id="getViewDetails">Record Data</button>    
             </div>
             <div style="height: 91%;">
                 <textarea id="codeEditor"></textarea>
@@ -480,6 +451,7 @@
     <script src="/src/assets/JS/gridColumns.js" type="application/javascript"></script>
     <script src="/src/assets/JS/functionalRplacement.js" type="application/javascript"></script>
     <script src="/src/assets/JS/gridFieldPixelCode.js" type="application/javascript"></script>
+    <script src="/src/assets/JS/gridFieldRecordPixelCode.js" type="application/javascript"></script>
     <script src="/src/assets/JS/render.js" type="application/javascript"></script>
 
 </body>

@@ -56,7 +56,7 @@ function getGridFunction(data){
     data = data.split(" ");
     
     let fields = data[0].split(",");
-    let functions = data[1].replace(/\-/g,"").replace(/\>/g,",");
+    let functions = data.length>1?data[1].replace(/\-/g,"").replace(/\>/g,","):"rd,rt";
     functions = functions.split(",");
     console.log(functions);
     console.log(fields);
